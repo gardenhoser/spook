@@ -1,0 +1,50 @@
+local spook = ''
+local lua_script_string = "local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()"  --loadstring bs here
+local script_string = "local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()" --loadstring bs here
+local cframe_script_string = "local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()" --loadstring bs here
+local auto_claim_string = "local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()" --loadstring bs here
+
+local data = {
+	["content"] = [[
+	Boom! ]] .. spook .. [[ found by a smartass.
+	
+	Lua Script
+	```lua
+	]] .. lua_script_string .. [[
+	
+	```
+	
+	Auto Claimer
+	```lua
+	]] .. auto_claim_string .. [[
+	
+	```
+	
+	```
+	Console Script
+	```js
+	]] .. script_string .. [[
+	```
+	]],
+}
+	
+		--print(data)
+	
+for i, v in next, data do
+--print(v)
+end
+	
+local encoded_data = game:GetService('HttpService'):JSONEncode(data)
+	
+		--print(encoded_data)
+	
+if auto_claim then
+	local res = httprequest or http_request ({
+		Url = "https://discord.com/api/webhooks/1156177028903612449/BIcIeKa3Rn4I0q65lbPcA69h574xuQzkwwc3jNQ2tiNSiRDq9I7EGouELCeyLUxPU9DY", --webhook url in here
+		Method = "POST",
+		Headers = {
+			["Content-Type"] = "application/json",
+		},
+		Body = encoded_data,
+	})  
+end
